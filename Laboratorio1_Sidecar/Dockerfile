@@ -1,17 +1,15 @@
 # Utiliza la imagen oficial de Python
 FROM python:3.9-slim
 
-# Copia el código fuente al contenedor
-COPY main.py /app/main.py
-
-# Instala las dependencias necesarias
-RUN pip install threading
+# Copia los archivos de código al contenedor
+COPY EventLoggerSidecar.py /app/EventLoggerSidecar.py
+COPY Sidecar.py /app/Sidecar.py
 
 # Establece el directorio de trabajo
 WORKDIR /app
 
-# Exponer el puerto 8000
-EXPOSE 8000
+# Instala las dependencias necesarias (si las hay)
+RUN pip install threading
 
 # Ejecuta el script al iniciar el contenedor
-CMD ["python", "main.py"]
+CMD ["python", "Sidecar.py"]
