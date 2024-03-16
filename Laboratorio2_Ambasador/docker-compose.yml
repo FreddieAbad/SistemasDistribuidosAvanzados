@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile1
     ports:
-      - "8080:5000"
+      - "8080:8080"
 
   service2:
     build:
