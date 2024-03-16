@@ -21,7 +21,11 @@ def home():
     return 'Mensaje procesado y registrado en el log.'
 
 if __name__ == '__main__':
-    log_thread = threading.Thread(target=main_instance.sidecar.print_log_every_30_seconds)
+    # Crear una instancia de EventLoggerSidecar
+    sidecar = EventLoggerSidecar()
+
+    # Crear un hilo para ejecutar print_log_every_30_seconds
+    log_thread = threading.Thread(target=sidecar.print_log_every_30_seconds)
     log_thread.daemon = True
     log_thread.start()
 
