@@ -8,8 +8,8 @@ COPY Sidecar.py /app/Sidecar.py
 # Establece el directorio de trabajo
 WORKDIR /app
 
-# Instala las dependencias necesarias (si las hay)
-RUN pip install threading
+# Exponer el puerto 8000
+EXPOSE 8000
 
 # Ejecuta el script al iniciar el contenedor
 CMD ["python", "Sidecar.py"]
