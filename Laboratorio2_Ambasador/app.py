@@ -5,8 +5,7 @@ app = Flask(__name__)
 
 shards_data = {
     "shard1": [],
-    "shard2": [],
-    "shard3": []
+    "shard2": []
 }
 
 @app.route('/users', methods=['POST'])
@@ -22,4 +21,5 @@ def get_users(shard_id):
     return jsonify(shards_data.get(shard_id, []))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
+

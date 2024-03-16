@@ -1,9 +1,0 @@
-FROM python:3.9-slim
-
-COPY embassador.py /app/embassador.py
-
-WORKDIR /app
-
-RUN pip install requests
-
-CMD ["python", "embassador.py"]
