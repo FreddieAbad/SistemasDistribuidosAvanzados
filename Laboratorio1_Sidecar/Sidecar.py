@@ -1,4 +1,4 @@
-from event_logger import EventLoggerSidecar
+from EventLoggerSidecar import EventLoggerSidecar
 import threading
 import time
 
