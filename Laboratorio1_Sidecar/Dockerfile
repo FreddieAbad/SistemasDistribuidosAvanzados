@@ -4,6 +4,7 @@ FROM python:3.9-slim
 # Copia los archivos de código al contenedor
 COPY EventLoggerSidecar.py /app/EventLoggerSidecar.py
 COPY Sidecar.py /app/Sidecar.py
+RUN pip install flask
 
 # Establece el directorio de trabajo
 WORKDIR /app

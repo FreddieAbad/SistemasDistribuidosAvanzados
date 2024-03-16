@@ -1,6 +1,9 @@
+from flask import Flask
 from EventLoggerSidecar import EventLoggerSidecar
 import threading
 import time
+
+app = Flask(__name__)
 
 class Main:
     def __init__(self):
@@ -10,12 +13,16 @@ class Main:
         print(f"Processing message: {message}")
         self.sidecar.log_event(f"Message processed: {message}")
 
-app = Main()
+main_instance = Main()
 
-log_thread = threading.Thread(target=app.sidecar.print_log_every_30_seconds)
-log_thread.daemon = True
-log_thread.start()
+@app.route('/')
+def home():
+    main_instance.process_message("Mensaje de prueba")
+    return 'Mensaje procesado y registrado en el log.'
 
-app.process_message("Mensaje de prueba")
+if __name__ == '__main__':
+    log_thread = threading.Thread(target=main_instance.sidecar.print_log_every_30_seconds)
+    log_thread.daemon = True
+    log_thread.start()
 
-time.sleep(60)
+    app.run(debug=True)
