@@ -1,7 +1,7 @@
 import requests
 
 # Servidor central
-SERVER_URL = 'http://3.87.24.34:5000'  
+SERVER_URL = 'http://ambassador:80'  
 
 def create_user(shard_id, user_data):
     url = f'{SERVER_URL}/users'

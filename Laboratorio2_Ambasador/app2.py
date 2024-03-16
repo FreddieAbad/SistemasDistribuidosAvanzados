@@ -4,7 +4,6 @@ import json
 app = Flask(__name__)
 
 shards_data = {
-    "shard1": [],
     "shard2": []
 }
 

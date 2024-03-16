@@ -1,11 +1,18 @@
 version: '3'
 services:
-  service:
+  service1:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile1
     ports:
-      - "5000:5000"
+      - "5001:5000"
+
+  service2:
+    build:
+      context: .
+      dockerfile: Dockerfile2
+    ports:
+      - "5002:5000"
 
   ambassador:
     build:
@@ -14,4 +21,5 @@ services:
     ports:
       - "80:80"
     depends_on:
-      - service
+      - service1
+      - service2
