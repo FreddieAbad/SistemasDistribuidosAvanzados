@@ -9,8 +9,8 @@ RUN pip install flask
 # Establece el directorio de trabajo
 WORKDIR /app
 
-# Exponer el puerto 8000
-EXPOSE 8000
+# Exponer el puerto 5000
+EXPOSE 5000
 
 # Ejecuta el script al iniciar el contenedor
 CMD ["python", "Sidecar.py"]
